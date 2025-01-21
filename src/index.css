@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family:"Merriweather"
+}
+
+.transparent{
+    background:rgba(0,0,0,0.90)
+}
+
+.imigongo{
+    background-image: url("./assets/images/imigongo.jpg");   
+    background-size:cover;
+    
+}
+
+.group {
+  transition:2s;
+  perspective: 1000px;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.group-hover\:rotate-y-180:hover .rotate-y-180 {
+  transform: rotateY(0);
+}
+
+.transition {
+  transition: all 0.5s ease;
+}
+
+/* Custom Scrollbar Styling */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 8px; /* For horizontal scroll */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #f97316; /* orange-300 color */
+  border-radius: 10px;
+  border: 2px solid transparent; /* Adds space around the thumb */
+  background-clip: content-box;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #ea580c; /* darker orange on hover */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Optional: Add scroll bar width for vertical scroll */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px; /* Adjust for vertical scroll */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #f97316; /* orange-300 color */
+}
+
+
+/* Custom Main Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 12px;  /* Adjust the width for vertical scrollbar */
+  height: 12px; /* Adjust the height for horizontal scrollbar */
+}
+
+/* Styling the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: #34d399; /* Green-300 color (Tailwind green) */
+  border-radius: 10px; /* Rounded corners for the thumb */
+  border: 3px solid transparent; /* Space between thumb and track */
+  background-clip: content-box; /* Makes the border space visible */
+}
+
+/* Hover effect on the thumb */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #10b981; /* Darker green on hover */
+}
+
+/* Styling the scrollbar track (the background of the scrollbar) */
+::-webkit-scrollbar-track {
+  background-color: #e0fdf4; /* Light green background */
+  border-radius: 10px; /* Rounded corners for the track */
+}
+
+/* Optional: Styling for horizontal scrollbar (for bottom scrollbar) */
+::-webkit-scrollbar-horizontal {
+  height: 12px;
+}
+
+/* Optional: Styling for horizontal scrollbar thumb */
+::-webkit-scrollbar-thumb:horizontal {
+  background-color: #34d399;
+  border-radius: 10px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+/* Optional: Hover effect on horizontal scrollbar thumb */
+::-webkit-scrollbar-thumb:horizontal:hover {
+  background-color: #10b981; /* Darker green on hover */
+}
+
+
+
+.discover{
+  transform: rotateY(180deg);
+  
+}
