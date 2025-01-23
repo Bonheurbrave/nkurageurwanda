@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
-import { Toaster , toast } from "sonner";
+import { Toaster, toast } from "sonner";
 import { Navigate, useNavigate } from "react-router-dom";
+
 axios.defaults.baseURL = "http://localhost:4000";
+
 const RegistrationPage = () => {
   const goto = useNavigate();
   const [name, setName] = useState("");
@@ -14,9 +16,9 @@ const RegistrationPage = () => {
   const [loading, setLoading] = useState(false);
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
+    setError(""); // Reset error state on new submission
 
     // Basic validation
     if (!name || !email || !password || !confirmPassword) {
@@ -31,17 +33,30 @@ const RegistrationPage = () => {
 
     setLoading(true);
 
-    axios
-      .post("/api/users/register", {
+    try {
+      const response = await axios.post("/api/users/register", {
         fullnames: name,
         email: email,
         password: password,
-      })
-    toast.success("Account successfully created")
-    setTimeout(() => {
+      });
+
+      // If registration is successful
+      toast.success("Account successfully created!");
+      setTimeout(() => {
+        setLoading(false);
+        goto("/login"); // Redirect to login after successful registration
+      }, 2000);
+    } catch (error) {
       setLoading(false);
-      goto("/login")
-    }, 2000);
+      
+      // Handle error response from backend
+      if (error.response) {
+        const errorMessage = error.response.data || "An error occurred during registration.";
+        toast.error(errorMessage); // Show error toast with the backend message
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
+    }
   };
 
   return (
@@ -153,7 +168,7 @@ const RegistrationPage = () => {
           </p>
         </div>
       </motion.div>
-      <Toaster duration={2000} richColors/>
+      <Toaster duration={2000} richColors />
     </div>
   );
 };

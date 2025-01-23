@@ -4,13 +4,14 @@ import { FaWhatsapp } from "react-icons/fa"; // WhatsApp Icon
 import logo from "../../assets/images/logo.png";
 import { FaCartShopping } from "react-icons/fa6";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false); // To track if navbar should be fixed
-  const cartitems = useSelector((state)=>state.cart.cart);
-  
+  const cartitems = useSelector((state) => state.cart.cart);
+  const navigate = useNavigate();
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -32,6 +33,14 @@ const NavBar = () => {
     };
   }, []);
 
+  // Handle Logout
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login"); // Redirect to login page after logout
+  };
+
+  const isLoggedIn = localStorage.getItem("token"); // Check if the user is logged in
+
   return (
     <>
       <motion.nav
@@ -48,77 +57,68 @@ const NavBar = () => {
           {/* Logo */}
           <div className="text-white text-2xl font-semibold">
             <Link to="/">
-              <img src={logo} alt="logo" className="w-1/5 sm:w-1/6 md:w-1/6 lg:w-1/12" />
+              <img
+                src={logo}
+                alt="logo"
+                className="w-1/5 sm:w-1/6 md:w-1/6 lg:w-1/12"
+              />
             </Link>
           </div>
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex space-x-6 text-sm font-medium">
-            <Link
-              to="/"
-              className="text-white hover:text-gray-200 transition duration-300"
-            >
+            <Link to="/" className="text-white hover:text-gray-200 transition duration-300">
               Home
             </Link>
-            <Link
-              to="/services"
-              className="text-white hover:text-gray-200 transition duration-300"
-            >
+            <Link to="/services" className="text-white hover:text-gray-200 transition duration-300">
               Services
             </Link>
-            <Link
-              to="/products"
-              className="text-white hover:text-gray-200 transition duration-300"
-            >
+            <Link to="/products" className="text-white hover:text-gray-200 transition duration-300">
               Products
             </Link>
-            <Link
-              to="/about-us"
-              className="text-white hover:text-gray-200 transition duration-300"
-            >
+            <Link to="/about-us" className="text-white hover:text-gray-200 transition duration-300">
               About us
             </Link>
-            <Link
-              to="/contact-us"
-              className="text-white hover:text-gray-200 transition duration-300"
-            >
+            <Link to="/contact-us" className="text-white hover:text-gray-200 transition duration-300">
               Contact us
             </Link>
-            <Link
-              to="/gallery"
-              className="text-white hover:text-gray-200 transition duration-300"
-            >
+            <Link to="/gallery" className="text-white hover:text-gray-200 transition duration-300">
               Gallery
             </Link>
           </div>
 
           {/* User and Cart Icons */}
-          {
-            localStorage.getItem("token") == "logged"?
-
-            <div className="flex items-center space-x-5 text-xl text-white">
-            <div className="flex">
-              <Link to="/cart"><FaCartShopping/></Link>
-              <sup>{cartitems.length}</sup>
-              </div>
-            <button onClick={()=>{localStorage.clear()}} className="bg-transparent border-2 border-orange-400 px-4 py-2 rounded-md text-sm font-semibold hover:bg-orange-300 transition ease-in-out duration-300">
-              Logout
-            </button>
-          </div>:
-          <div className=" space-x-4 text-white">
-            <a href="/register">
-
-            <button className="bg-transparent border-2 border-orange-400 px-4 py-2 rounded-md text-sm font-semibold hover:bg-orange-300 transition ease-in-out duration-300">
-              Signup
-            </button>
-            </a>
-            <a href="/login">
-            <button className="bg-transparent border-2 border-orange-400 px-4 py-2 rounded-md text-sm font-semibold hover:bg-orange-300 transition ease-in-out duration-300">
-              Sign in
-            </button>
-            </a>
+          <div className="flex items-center space-x-5 text-xl text-white">
+            {isLoggedIn ? (
+              <>
+                <div className="flex">
+                  <Link to="/cart">
+                    <FaCartShopping />
+                  </Link>
+                  <sup>{cartitems.length}</sup>
+                </div>
+                <button
+                  onClick={handleLogout}
+                  className="bg-transparent border-2 border-orange-400 px-4 py-2 rounded-md text-sm font-semibold hover:bg-orange-300 transition ease-in-out duration-300"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link to="/register">
+                  <button className="bg-transparent border-2 border-orange-400 px-4 py-2 rounded-md text-sm font-semibold hover:bg-orange-300 transition ease-in-out duration-300">
+                    Signup
+                  </button>
+                </Link>
+                <Link to="/login">
+                  <button className="bg-transparent border-2 border-orange-400 px-4 py-2 rounded-md text-sm font-semibold hover:bg-orange-300 transition ease-in-out duration-300">
+                    Sign in
+                  </button>
+                </Link>
+              </>
+            )}
           </div>
-          }
         </div>
       </motion.nav>
 

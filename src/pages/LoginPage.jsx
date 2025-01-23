@@ -1,33 +1,68 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
 import { Toaster, toast } from "sonner";
 import { useNavigate } from "react-router-dom";
+
 axios.defaults.baseURL = "http://localhost:4000";
+
 const LoginPage = () => {
-  const goto = useNavigate("/");
+  const goto = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // Check if the user is already logged in
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Use effect to check login status on page load
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
+
     if (!email || !password) {
-      toast.error("Please fill in both fields");
+      toast.error("Please fill in both fields.");
       return;
     }
 
     setLoading(true);
-    axios
-    .post("/api/users/login", { email: email, password: password })
-    .then( async(res) => {
-        localStorage.setItem("token", res.data);
-        toast.success("Login successfull!");
-        goto("/");
-      }).catch(toast.error("Invalid credentials"))
+
+    try {
+      // Attempt login request
+      const response = await axios.post("/api/users/login", {
+        email: email,
+        password: password,
+      });
+
+      // If login is successful, store the token and userId in localStorage
+      localStorage.setItem("token", response.data.token); // Save token for future use
+      localStorage.setItem("userId", response.data.userId); // Save userId to localStorage
+
+      setIsLoggedIn(true); // Update state to reflect user is logged in
+      toast.success("Login successful!");
+
+      // Redirect to the home page or dashboard after successful login
+      setTimeout(() => {
+        setLoading(false);
+        goto("/"); // Redirect to the homepage/dashboard
+      }, 2000);
+    } catch (error) {
+      setLoading(false);
+
+      // If login fails, display error toast
+      if (error.response) {
+        const errorMessage = error.response.data || "Invalid credentials.";
+        toast.error(errorMessage);
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
+    }
   };
 
   return (
@@ -42,19 +77,8 @@ const LoginPage = () => {
           Login
         </h2>
 
-        {/* Error message */}
-        {error && (
-          <motion.div
-            className="text-red-500 text-sm text-center mb-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-          >
-            {error}
-          </motion.div>
-        )}
-
         <form onSubmit={handleSubmit}>
+          {/* Email */}
           <div className="mb-4">
             <label htmlFor="email" className="block text-gray-600 mb-2">
               Email Address
@@ -69,6 +93,7 @@ const LoginPage = () => {
             />
           </div>
 
+          {/* Password */}
           <div className="mb-6">
             <label htmlFor="password" className="block text-gray-600 mb-2">
               Password
@@ -83,15 +108,26 @@ const LoginPage = () => {
             />
           </div>
 
-          <motion.button
-            type="submit"
-            className="w-full bg-indigo-600 text-white py-3 rounded-lg text-lg font-semibold"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            disabled={loading}
-          >
-            {loading ? "Logging in..." : "Login"}
-          </motion.button>
+          {/* Submit Button */}
+          {isLoggedIn ? (
+            <motion.button
+              type="button"
+              className="w-full bg-green-600 text-white py-3 rounded-lg text-lg font-semibold"
+              disabled
+            >
+              Already Logged In
+            </motion.button>
+          ) : (
+            <motion.button
+              type="submit"
+              className="w-full bg-indigo-600 text-white py-3 rounded-lg text-lg font-semibold"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              disabled={loading}
+            >
+              {loading ? "Logging in..." : "Login"}
+            </motion.button>
+          )}
         </form>
 
         <div className="mt-4 text-center">
