@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import {toast , Toaster} from 'sonner'
 const Footer = () => {
+  const [email , setemail] = useState('');
+  //subscribing button functions
+  const handlesubscribe = ()=>{
+    toast.success("Your subscription was done successfully")
+    
+  }
   return (
     <div className="bg-green-700 text-white py-10 mt-12">
       <div className="container mx-auto px-6">
@@ -45,6 +52,10 @@ const Footer = () => {
                 <FaLinkedinIn size={24} />
               </a>
             </div>
+            <div className=' pt-12'>
+              <input type="text" onChange={(e)=>{setemail(e.target.value)}} placeholder='Email address' className=' outline-none text-black rounded-l-sm py-2 px-2' />
+              <button className='px-5 bg-black py-2' onClick={handlesubscribe}>send</button>
+            </div>
           </div>
         </div>
 
@@ -53,6 +64,7 @@ const Footer = () => {
           <p>&copy; {new Date().getFullYear()} Nkurage U Rwanda. All rights reserved.</p>
         </div>
       </div>
+      <Toaster duration={2000} richColors/>
     </div>
   );
 };
