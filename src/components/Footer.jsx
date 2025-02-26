@@ -52,7 +52,8 @@ const Footer = () => {
                 <FaLinkedinIn size={24} />
               </a>
             </div>
-            <div className=' pt-12'>
+            <div className=' pt-5'>
+              <p className=' mb-2 font-semibold text-lg'>Subscribe to our Newsletter</p>
               <input type="text" onChange={(e)=>{setemail(e.target.value)}} placeholder='Email address' className=' outline-none text-black rounded-l-sm py-2 px-2' />
               <button className='px-5 bg-black py-2' onClick={handlesubscribe}>send</button>
             </div>

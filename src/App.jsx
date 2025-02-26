@@ -8,7 +8,7 @@ import ServicesPage from './pages/ServicesPage'
 import LoginPage from './pages/LoginPage'
 import RegistrationPage from './pages/RegistrationPage'
 import Contact from './pages/Contact'
-import ProductPage from './pages/ProductPage'
+
 import AboutUs from './pages/AboutUs'
 import GalleryPage from './pages/GalleryPage'
 import OurToursPage from './pages/OurToursPage'
@@ -23,7 +23,6 @@ function App() {
       <Route path="*" element={<Navigate to={"/"} />} />
       <Route path="/" element={<Homepage />} />
       <Route path="/products" element={<OurProducts />} />
-      <Route path="/products/:productname" element={<ProductPage />} />
       <Route path="/services" element={<ServicesPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegistrationPage />} />

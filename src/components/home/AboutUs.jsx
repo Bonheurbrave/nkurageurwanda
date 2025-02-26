@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import literature from '../../assets/images/literature.jpeg'
 import CustomerReviews from '../CustomerReviews';
 import { Link } from 'react-router-dom';
+import amateke from '../../assets/images/products/amateke.jpg'
 const AboutUs = () => {
   const products = [
     {
@@ -43,7 +44,7 @@ const AboutUs = () => {
       link:"/products/foods-beverages",
       features: ['Packaged traditional snacks', 'Locally made teas, coffees, or alcoholic beverages', 'Recipe books featuring indigenous cuisines'],
       description: 'Taste the flavors of our land with our food and beverages.',
-      image: foods
+      image: amateke
     },
     {
       title: 'Cultural Kits',

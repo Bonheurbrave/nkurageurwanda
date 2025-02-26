@@ -425,7 +425,7 @@ const OurProducts = () => {
               },
             ],
           },
-          // Add other categories here
+          
         ];
 
   const dispatch = useDispatch();

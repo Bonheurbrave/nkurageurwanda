@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const ContactUs = () => {
   return (
-    <div className="bg-white py-16 px-6 lg:px-24">
+    <div className="bg-white py-16 px-6 lg:px-24 flex justify-between">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

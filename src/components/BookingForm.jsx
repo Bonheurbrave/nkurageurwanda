@@ -1,23 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaCalendarAlt, FaUser, FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaUsers } from 'react-icons/fa';
 
-const tours = [
-  { id: 1, name: 'Huye Museum' },
-  { id: 2, name: 'Kigali Genocide Memorial' },
-  { id: 3, name: 'Nyanza Royal Palace' },
-  { id: 4, name: 'Musanze Caves' },
-  { id: 5, name: 'Kigali City Tour' },
-  { id: 6, name: 'Ibyiwacu Cultural Village' },
-  { id: 7, name: 'Nyungwe National Park' },
-  { id: 8, name: 'Lake Kivu' },
-  { id: 9, name: 'Gorilla Trekking in Volcanoes National Park' },
-  { id: 10, name: 'Ethnographic Museum of Rwanda' },
-];
+const BookingForm = ({ selectedTour }) => {
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm();
 
-const BookingForm = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  
+  // Autofill form with selected tour data
+  useEffect(() => {
+    if (selectedTour) {
+      setValue('tour', selectedTour.name); // Set default tour value
+    }
+  }, [selectedTour, setValue]);
+
   const onSubmit = (data) => {
     alert('Booking Submitted! We will get back to you soon.');
     console.log(data); // Send this data to your server or booking API
@@ -76,11 +70,7 @@ const BookingForm = () => {
             className="w-full p-3 border border-gray-300 rounded-lg"
           >
             <option value="">Select a tour...</option>
-            {tours.map((tour) => (
-              <option key={tour.id} value={tour.name}>
-                {tour.name}
-              </option>
-            ))}
+            <option value={selectedTour?.name}>{selectedTour?.name}</option>
           </select>
           {errors.tour && <span className="text-red-500 text-sm">{errors.tour.message}</span>}
         </div>

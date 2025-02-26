@@ -77,21 +77,21 @@ const NavBar = () => {
               Products
             </Link>
             <Link to="/about-us" className="text-white hover:text-gray-200 transition duration-300">
-              About us
+              About
             </Link>
             <Link to="/contact-us" className="text-white hover:text-gray-200 transition duration-300">
-              Contact us
+              Contact
             </Link>
-            <Link to="/gallery" className="text-white hover:text-gray-200 transition duration-300">
+            <Link to="/gallery" className="text-white mr-10 hover:text-gray-200 transition duration-300">
               Gallery
             </Link>
           </div>
 
           {/* User and Cart Icons */}
-          <div className="flex items-center space-x-5 text-xl text-white">
+          <div className="flex justify-end space-x-4 text-xl text-white">
             {isLoggedIn ? (
               <>
-                <div className="flex">
+                <div className="flex  mt-4 pl-4">
                   <Link to="/cart">
                     <FaCartShopping />
                   </Link>
@@ -106,6 +106,8 @@ const NavBar = () => {
               </>
             ) : (
               <>
+              <div className=" pl-4 flex  space-x-3">
+                
                 <Link to="/register">
                   <button className="bg-transparent border-2 border-orange-400 px-4 py-2 rounded-md text-sm font-semibold hover:bg-orange-300 transition ease-in-out duration-300">
                     Signup
@@ -113,9 +115,10 @@ const NavBar = () => {
                 </Link>
                 <Link to="/login">
                   <button className="bg-transparent border-2 border-orange-400 px-4 py-2 rounded-md text-sm font-semibold hover:bg-orange-300 transition ease-in-out duration-300">
-                    Sign in
+                    Signin
                   </button>
                 </Link>
+              </div>
               </>
             )}
           </div>
