@@ -53,7 +53,7 @@ const OurProducts = () => {
 
     try {
       const quantity = 1; // Default quantity to 1
-      const userId = JSON.parse(localStorage.getItem("user")).id; // Assuming user info is stored
+      const userId = JSON.parse(localStorage.getItem("userId")).id; // Assuming user info is stored
 
       const response = await axios.post(
         "http://localhost:4000/api/cart/add", // API endpoint to add to cart
