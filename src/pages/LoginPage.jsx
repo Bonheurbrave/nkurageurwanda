@@ -12,13 +12,13 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Check if the user is already logged in
+  // State to track whether user is logged in
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // Use effect to check login status on page load
+  // Check if the user is already logged in (by verifying the presence of the token)
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      setIsLoggedIn(true);
+      setIsLoggedIn(true); // If a token exists in localStorage, the user is considered logged in
     }
   }, []);
 
@@ -34,28 +34,28 @@ const LoginPage = () => {
     setLoading(true);
 
     try {
-      // Attempt login request
+      // Send login request to the server
       const response = await axios.post("/api/users/login", {
         email: email,
         password: password,
       });
 
       // If login is successful, store the token and userId in localStorage
-      localStorage.setItem("token", response.data.token); // Save token for future use
-      localStorage.setItem("userId", response.data.userId); // Save userId to localStorage
+      localStorage.setItem("token", response.data.token); // Save token for future requests
+      localStorage.setItem("userId", response.data.userId); // Save userId to identify the user
 
-      setIsLoggedIn(true); // Update state to reflect user is logged in
+      setIsLoggedIn(true); // Update login state
       toast.success("Login successful!");
 
-      // Redirect to the home page or dashboard after successful login
+      // Redirect to home page/dashboard after successful login
       setTimeout(() => {
         setLoading(false);
-        goto("/"); // Redirect to the homepage/dashboard
-      }, 2000);
+        goto("/"); // Redirect user to home/dashboard page
+      }, 2000); // Adding delay to allow user to see success toast
     } catch (error) {
       setLoading(false);
 
-      // If login fails, display error toast
+      // If login fails, show error toast with a relevant message
       if (error.response) {
         const errorMessage = error.response.data || "Invalid credentials.";
         toast.error(errorMessage);
@@ -78,7 +78,7 @@ const LoginPage = () => {
         </h2>
 
         <form onSubmit={handleSubmit}>
-          {/* Email */}
+          {/* Email Input */}
           <div className="mb-4">
             <label htmlFor="email" className="block text-gray-600 mb-2">
               Email Address
@@ -93,7 +93,7 @@ const LoginPage = () => {
             />
           </div>
 
-          {/* Password */}
+          {/* Password Input */}
           <div className="mb-6">
             <label htmlFor="password" className="block text-gray-600 mb-2">
               Password
@@ -130,6 +130,7 @@ const LoginPage = () => {
           )}
         </form>
 
+        {/* Redirect to Registration page */}
         <div className="mt-4 text-center">
           <p className="text-sm text-gray-600">
             Don't have an account?{" "}
