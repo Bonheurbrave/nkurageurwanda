@@ -7,7 +7,7 @@ import axios from "axios";
 import { toast } from "sonner"; // For notifications
 
 const OurProducts = () => {
-  const [isopen, setisopen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [products, setProducts] = useState([]); // Store all products without categories
 
   const dispatch = useDispatch();
@@ -28,8 +28,8 @@ const OurProducts = () => {
     fetchProducts();
   }, []); // Empty dependency array means it runs only once when the component mounts
 
-  const handleviewtheproductdetails = (product) => {
-    setisopen(true);
+  const handleViewProductDetails = (product) => {
+    setIsOpen(true);
     // You can further handle product details view here
   };
 
@@ -44,6 +44,7 @@ const OurProducts = () => {
 
   const handleAddToCart = async (product) => {
     const token = localStorage.getItem("token"); // Get the JWT token from localStorage
+    const userId = localStorage.getItem("userId"); // Get user ID from localStorage
 
     if (!token) {
       toast.error("Please login to add items to your cart.");
@@ -51,9 +52,21 @@ const OurProducts = () => {
       return;
     }
 
+    if (!userId) {
+      toast.error("User ID not found. Please login again.");
+      window.location.href = "/login"; // Redirect to the login page
+      return;
+    }
+
     try {
       const quantity = 1; // Default quantity to 1
-      const userId = JSON.parse(localStorage.getItem("userId")).id; // Assuming user info is stored
+
+      // Log the data being sent to the server
+      console.log({
+        productId: product._id,
+        userId,
+        quantity,
+      });
 
       const response = await axios.post(
         "http://localhost:4000/api/cart/add", // API endpoint to add to cart
@@ -65,18 +78,21 @@ const OurProducts = () => {
         }
       );
 
-      dispatch(addToCart(product)); // Update Redux store
-      toast.success("Product added to cart successfully!");
+      if (response.status === 200) {
+        dispatch(addToCart(product)); // Update Redux store
+        toast.success("Product added to cart successfully!");
+      } else {
+        toast.error("Failed to add product to cart. Please try again.");
+      }
     } catch (error) {
+      console.error("Error adding product to cart:", error.response || error.message || error);
       toast.error("Failed to add product to cart. Please try again.");
     }
   };
 
   return (
     <div className="bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      {isopen ? (
-        null
-      ) : (
+      {isOpen ? null : (
         <motion.div
           className="max-w-7xl mx-auto text-center"
           initial={{ opacity: 0 }}
@@ -100,13 +116,11 @@ const OurProducts = () => {
                     src={`http://localhost:4000${product.image}`} // Assuming image path is relative to your server
                     alt={product.name}
                     className="w-full h-40 object-cover"
-                    onClick={() => handleviewtheproductdetails(product)} // Handle product details
+                    onClick={() => handleViewProductDetails(product)} // Handle product details
                   />
 
                   <div className="p-4">
-                    <h3 className="text-xl font-semibold text-gray-800">
-                      {product.name}
-                    </h3>
+                    <h3 className="text-xl font-semibold text-gray-800">{product.name}</h3>
 
                     <CurrencyFormat
                       className="text-xl text-indigo-600 font-bold text-center"

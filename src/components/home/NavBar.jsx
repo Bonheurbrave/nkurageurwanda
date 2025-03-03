@@ -35,8 +35,8 @@ const NavBar = () => {
 
   // Handle Logout
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    navigate("/login"); // Redirect to login page after logout
+    localStorage.clear();
+    navigate("/login"); 
   };
 
   const isLoggedIn = localStorage.getItem("token"); // Check if the user is logged in
