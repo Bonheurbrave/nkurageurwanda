@@ -5,12 +5,16 @@ import logo from "../../assets/images/logo.png";
 import { FaCartShopping } from "react-icons/fa6";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false); // To track if navbar should be fixed
-  const cartitems = useSelector((state) => state.cart.cart);
+  const [cartCount, setCartCount] = useState(0); // State to hold cart item count
   const navigate = useNavigate();
+
+  const isLoggedIn = localStorage.getItem("token"); // Check if the user is logged in
+  const userId = localStorage.getItem("userId"); // Assuming user ID is stored in localStorage after login
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -33,13 +37,30 @@ const NavBar = () => {
     };
   }, []);
 
+  // Fetch cart data when the user is logged in
+  useEffect(() => {
+    if (isLoggedIn && userId) {
+      // Fetch cart items from the backend
+      axios
+        .get(`/api/cart/${userId}`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        })
+        .then((response) => {
+          setCartCount(response.data.length); // Set the cart item count
+        })
+        .catch((error) => {
+          console.error("Error fetching cart:", error);
+        });
+    }
+  }, [isLoggedIn, userId]);
+
   // Handle Logout
   const handleLogout = () => {
     localStorage.clear();
-    navigate("/login"); 
+    navigate("/login");
   };
-
-  const isLoggedIn = localStorage.getItem("token"); // Check if the user is logged in
 
   return (
     <>
@@ -91,11 +112,11 @@ const NavBar = () => {
           <div className="flex justify-end space-x-4 text-xl text-white">
             {isLoggedIn ? (
               <>
-                <div className="flex  mt-4 pl-4">
+                <div className="flex mt-4 pl-4">
                   <Link to="/cart">
                     <FaCartShopping />
                   </Link>
-                  <sup>{cartitems.length}</sup>
+                  {cartCount > 0 && <sup>{cartCount}</sup>} {/* Display cart count */}
                 </div>
                 <button
                   onClick={handleLogout}
@@ -106,19 +127,18 @@ const NavBar = () => {
               </>
             ) : (
               <>
-              <div className=" pl-4 flex  space-x-3">
-                
-                <Link to="/register">
-                  <button className="bg-transparent border-2 border-orange-400 px-4 py-2 rounded-md text-sm font-semibold hover:bg-orange-300 transition ease-in-out duration-300">
-                    Signup
-                  </button>
-                </Link>
-                <Link to="/login">
-                  <button className="bg-transparent border-2 border-orange-400 px-4 py-2 rounded-md text-sm font-semibold hover:bg-orange-300 transition ease-in-out duration-300">
-                    Signin
-                  </button>
-                </Link>
-              </div>
+                <div className="pl-4 flex space-x-3">
+                  <Link to="/register">
+                    <button className="bg-transparent border-2 border-orange-400 px-4 py-2 rounded-md text-sm font-semibold hover:bg-orange-300 transition ease-in-out duration-300">
+                      Signup
+                    </button>
+                  </Link>
+                  <Link to="/login">
+                    <button className="bg-transparent border-2 border-orange-400 px-4 py-2 rounded-md text-sm font-semibold hover:bg-orange-300 transition ease-in-out duration-300">
+                      Signin
+                    </button>
+                  </Link>
+                </div>
               </>
             )}
           </div>
