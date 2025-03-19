@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa"; // WhatsApp Icon
-import logo from "../../assets/images/logo.png";
+import logo from '../../../public/assets/images/logo.png'
 
 import { FaCartShopping } from "react-icons/fa6";
 import { useSelector } from "react-redux";
