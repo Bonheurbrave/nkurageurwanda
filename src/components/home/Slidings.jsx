@@ -25,8 +25,9 @@ const Slidings = () => {
     <div className=' absolute top-72 right-60'>
 
         <motion.h1
+          
           key={titles[currentIndex]} // Key to trigger re-render on title change
-          className="text-4xl md:text-5xl font-bold text-white text-center "
+          className="hidden md:flex text-4xl md:text-5xl font-bold text-white text-center "
           initial={{ x: '100%' }} // Start position off-screen to the right
           animate={{ x: 0 }} // Animate to the center
           exit={{ x: '-100%' }} // Slide out to the left

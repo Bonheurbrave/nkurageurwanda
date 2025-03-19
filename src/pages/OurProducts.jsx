@@ -45,13 +45,15 @@ const OurProducts = () => {
   const handleAddToCart = async (product) => {
     const token = localStorage.getItem("token"); // Get the JWT token from localStorage
     const userId = localStorage.getItem("userId"); // Get user ID from localStorage
-
+    
+    // Check if token exists
     if (!token) {
       toast.error("Please login to add items to your cart.");
       window.location.href = "/login"; // Redirect to the login page
       return;
     }
 
+    // Check if user ID exists
     if (!userId) {
       toast.error("User ID not found. Please login again.");
       window.location.href = "/login"; // Redirect to the login page
@@ -78,15 +80,20 @@ const OurProducts = () => {
         }
       );
 
+      // Check if response is successful
       if (response.status === 200) {
         dispatch(addToCart(product)); // Update Redux store
         toast.success("Product added to cart successfully!");
       } else {
+        // Handle failure if response status is not 200
         toast.error("Failed to add product to cart. Please try again.");
       }
     } catch (error) {
+      // Improved error handling and logging
       console.error("Error adding product to cart:", error.response || error.message || error);
-      toast.error("Failed to add product to cart. Please try again.");
+      toast.error(
+        error.response?.data?.message || "Failed to add product to cart. Please try again."
+      );
     }
   };
 
@@ -110,27 +117,30 @@ const OurProducts = () => {
               {products.map((product) => (
                 <div
                   key={product._id} // Ensure you're using a unique key (product._id is unique)
-                  className="flex-none w-64 h-80 bg-white rounded-lg shadow-lg overflow-hidden flex flex-col justify-between"
+                  className="bg-white shadow-lg rounded-lg overflow-hidden p-5"
                 >
                   <img
                     src={`http://localhost:4000${product.image}`} // Assuming image path is relative to your server
                     alt={product.name}
-                    className="w-full h-40 object-cover"
+                    className="h-52 object-cover mb-4 mx-auto"
+                    width={200}
                     onClick={() => handleViewProductDetails(product)} // Handle product details
                   />
 
-                  <div className="p-4">
-                    <h3 className="text-xl font-semibold text-gray-800">{product.name}</h3>
+                  <h3 className="font-semibold text-lg">{product.name}</h3>
 
+                  <p className="text-gray-500 text-sm">{product.description}</p>
+
+                  <div className="flex justify-between items-center mt-4">
                     <CurrencyFormat
-                      className="text-xl text-indigo-600 font-bold text-center"
+                      className="text-green-500 font-semibold"
                       suffix=" Frw"
                       value={product.price}
                       thousandSeparator={true}
                     />
 
                     <button
-                      className="bg-orange-300 text-white w-full rounded-md py-2"
+                      className="bg-orange-300 text-white py-1 px-3 rounded"
                       onClick={() => handleAddToCart(product)} // Add product to cart
                     >
                       Add to cart
