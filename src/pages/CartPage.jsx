@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 import { FaTrashAlt } from "react-icons/fa";
 import axios from "axios";
 import CurrencyFormat from "react-currency-format";
-import airtel from "../assets/images/airtel.png";
-import momo from "../assets/images/momo.jpeg";
-import mastercard from "../assets/images/mastercard.png";
-import paypal from "../assets/images/paypal.png";
+import airtel from '../../public/assets/images/airtel.png';
+import momo from "../../public/assets/images/momo.jpeg";
+import mastercard from "../../public/assets/images/mastercard.png";
+import paypal from "../../public/assets/images/paypal.png";
 
 // Modal message component
 const Modal = ({ closeModal }) => (
