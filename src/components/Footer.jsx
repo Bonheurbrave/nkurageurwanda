@@ -31,7 +31,7 @@ const Footer = () => {
               <li><Link to="/services" className="hover:text-orange-300">Services</Link></li>
               <li><Link to="/products" className="hover:text-orange-300">Products</Link></li>
               <li><Link to="/contact-us" className="hover:text-orange-300">Contact Us</Link></li>
-              <li><Link to="https://www.nkurageurwanda.com" target='_blank' className="hover:text-orange-300">Blog</Link></li>
+              <li><Link target='_blank' className="hover:text-orange-300">Blog</Link></li>
             </ul>
           </div>
 
