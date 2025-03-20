@@ -11,7 +11,7 @@
 }
 
 .imigongo{
-    background-image: url("./assets/images/imigongo.jpg");   
+    background-image: url("/assets/images/imigongo.jpg");
     background-size:cover;
     
 }
