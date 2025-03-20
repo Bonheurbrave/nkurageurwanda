@@ -60,15 +60,15 @@ const RegistrationPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gray-100">
+    <div className="min-h-screen flex justify-center items-center bg-gray-100 p-4">
       <motion.div
-        className="bg-white p-8 rounded-lg shadow-lg w-1/2"
+        className="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
         <h2 className="text-3xl font-semibold text-center text-gray-800 mb-6">
-          Register-Your-Account
+          Register Your Account
         </h2>
 
         {/* Error message */}

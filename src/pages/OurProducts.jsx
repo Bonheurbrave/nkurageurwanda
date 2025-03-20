@@ -111,13 +111,13 @@ const OurProducts = () => {
           {/* Loop through all products */}
           <div className="relative">
             <div
-              className="flex space-x-8 overflow-x-auto scroll-smooth custom-scrollbar"
+              className="flex flex-wrap justify-center gap-8 overflow-x-auto scroll-smooth custom-scrollbar"
               id="product-container"
             >
               {products.map((product) => (
                 <div
                   key={product._id} // Ensure you're using a unique key (product._id is unique)
-                  className="bg-white shadow-lg rounded-lg overflow-hidden p-5"
+                  className="bg-white shadow-lg rounded-lg overflow-hidden p-5 max-w-xs w-full"
                 >
                   <img
                     src={`https://nkurageurwanda.onrender.com${product.image}`} // Assuming image path is relative to your server

@@ -117,19 +117,19 @@ const CartPage = () => {
   return (
     <div className="min-h-screen bg-white p-8">
       <motion.div
-        className="max-w-screen px-10 mx-auto  py-6 rounded-xl"
+        className="max-w-screen px-4 sm:px-8 lg:px-10 mx-auto py-6 rounded-xl"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
         <h1 className="text-3xl font-bold px-3 text-left text-black underline mb-6">
-          Your Shopping basket
+          Your Shopping Basket
         </h1>
         {cartItems.length === 0 ? (
           <p className="text-center text-gray-500">Your cart is empty.</p>
         ) : (
-          <div className=" flex justify-between">
-            <div className="space-y-4 bg-white shadow-lg px-8">
+          <div className="flex flex-col lg:flex-row justify-between gap-6">
+            <div className="space-y-4 bg-white shadow-lg p-6 flex-1">
               {cartItems.map((item) => (
                 <motion.div
                   key={item.productId._id} // Unique key for each cart item (productId._id)
@@ -149,7 +149,7 @@ const CartPage = () => {
                         {item.productId.name}
                       </h2>
                       <p className="text-sm text-gray-500">
-                        <span className="font-bold">Number of products:</span>{" "}
+                        <span className="font-bold">Quantity:</span>{" "}
                         {item.quantity}
                       </p>
                       <CurrencyFormat
@@ -180,32 +180,32 @@ const CartPage = () => {
                 </motion.div>
               ))}
             </div>
-            <div className=" items-center bg-white shadow-md px-10 w-2/5 py-3">
-              <div className="">
-                <h1 className="font-semibold text-slate-500 text-xl animate-bounce text-center">Your Goodies Galore</h1>
-                <div>
-                  <h1 className=" font-bold text-sm py-7">Available Payments </h1>
-                  <div className=" grid grid-cols-2 items-center mx-auto">
-                    <img src={momo} alt="no internet connections" width={100}/>
-                    <img src={airtel} alt="no internet connections" width={100}/>
-                    <img src={paypal} alt="no internet connections" width={100}/>
-                    <img src={mastercard} alt="no internet connections" width={100}/>
-                  </div>
-                </div>
-                <div className=" flex">
-                  <h2 className="text-2xl font-bold text-green-500">Total:</h2>
-                  <p className="text-xl font-bold text-green-800 px-3">
-                    <CurrencyFormat
-                      value={total}
-                      displayType={"text"}
-                      thousandSeparator={true}
-                      className=" outline-none font-extrabold"
-                      suffix=" Frw"
-                    />
-                  </p>
+            <div className="bg-white shadow-md px-6 py-4 w-full sm:w-2/5 flex flex-col items-center">
+              <h1 className="font-semibold text-slate-500 text-xl animate-bounce text-center mb-4">
+                Your Goodies Galore
+              </h1>
+              <div className="w-full mb-4">
+                <h1 className="font-bold text-sm py-4">Available Payments</h1>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 justify-center">
+                  <img src={momo} alt="no internet connections" width={100} />
+                  <img src={airtel} alt="no internet connections" width={100} />
+                  <img src={paypal} alt="no internet connections" width={100} />
+                  <img src={mastercard} alt="no internet connections" width={100} />
                 </div>
               </div>
-              <div className="mt-6">
+              <div className="flex items-center mb-4">
+                <h2 className="text-2xl font-bold text-green-500">Total:</h2>
+                <p className="text-xl font-bold text-green-800 px-3">
+                  <CurrencyFormat
+                    value={total}
+                    displayType={"text"}
+                    thousandSeparator={true}
+                    className="outline-none font-extrabold"
+                    suffix=" Frw"
+                  />
+                </p>
+              </div>
+              <div className="mt-6 w-full">
                 <button
                   onClick={openModal}
                   className="w-full bg-green-500 text-white py-3 rounded-xl hover:bg-green-600 transition"
