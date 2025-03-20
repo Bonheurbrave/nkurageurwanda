@@ -23,7 +23,7 @@ import igicugutu from "/assets/images/products/igicugutu.jpg";
 import igisabo from "/assets/images/products/igisabo.jpg";
 import igiseke from "/assets/images/products/igiseke.jpeg";
 import igisoro from "/assets/images/products/igisoro.jpg";
-import ikembe from "/assets/images/products/ikembe.jpg";
+// import ikembe from "/assets/images/products/ikembe.jpg";
 import ikondera from "/assets/images/products/ikondera.png";
 import imayugi from "/assets/images/products/imayugi.jpg";
 import imitako from "/assets/images/products/imitako.jpg";
@@ -85,9 +85,7 @@ const images = [
   igicugutu,
   igisabo,
   igiseke,
-
   igisoro,
-  ikembe,
   ikondera,
   imayugi,
   imitako,
