@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaCalendarAlt, FaMapMarkerAlt, FaRegSadCry } from "react-icons/fa"; // Import an icon for 'no tour found'
-const BookingForm = "../components/BookingForm";
+import BookingForm from '../components/BookingForm'
 const artmuseum = "/assets/images/tours/artmuseum.jpeg";
 const handicraft = '/assets/images/handicraft.jpeg'
 const artvillage = "/assets/images/tours/artvillage.jpeg";
