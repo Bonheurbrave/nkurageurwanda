@@ -11,7 +11,7 @@ const paypal = "/assets/images/paypal.png";
 // Modal message component
 const Modal = ({ closeModal }) => (
   <motion.div
-    className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+    className="w-full fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     transition={{ duration: 0.3 }}
