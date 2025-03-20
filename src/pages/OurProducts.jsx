@@ -16,7 +16,7 @@ const OurProducts = () => {
     // Fetch products from the API when the component mounts
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/api/products"); // Replace with your endpoint
+        const response = await axios.get("https://nkurageurwanda.onrender.com/api/products"); // Replace with your endpoint
         console.log(response.data);
         setProducts(response.data); // Set fetched products
       } catch (error) {
@@ -71,7 +71,7 @@ const OurProducts = () => {
       });
 
       const response = await axios.post(
-        "http://localhost:4000/api/cart/add", // API endpoint to add to cart
+        "https://nkurageurwanda.onrender.com/api/cart/add", // API endpoint to add to cart
         { productId: product._id, userId, quantity },
         {
           headers: {
@@ -120,7 +120,7 @@ const OurProducts = () => {
                   className="bg-white shadow-lg rounded-lg overflow-hidden p-5"
                 >
                   <img
-                    src={`http://localhost:4000${product.image}`} // Assuming image path is relative to your server
+                    src={`https://nkurageurwanda.onrender.com${product.image}`} // Assuming image path is relative to your server
                     alt={product.name}
                     className="h-52 object-cover mb-4 mx-auto"
                     width={200}

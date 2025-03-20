@@ -56,7 +56,7 @@ const CartPage = () => {
     const fetchCartItems = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4000/api/cart/${userId}`,
+          `https://nkurageurwanda.onrender.com/api/cart/${userId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`, // Add the token in the Authorization header
@@ -89,7 +89,7 @@ const CartPage = () => {
   const handleRemoveItem = async (productId) => {
     try {
       await axios.delete(
-        `http://localhost:4000/api/cart/${userId}/${productId}`,
+        `https://nkurageurwanda.onrender.com/api/cart/${userId}/${productId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`, // Add the token in the Authorization header
@@ -140,7 +140,7 @@ const CartPage = () => {
                 >
                   <div className="flex items-center space-x-4">
                     <img
-                      src={`http://localhost:4000${item.productId.image}`} // Make sure the image path is correct
+                      src={`https://nkurageurwanda.onrender.com${item.productId.image}`} // Make sure the image path is correct
                       alt={item.productId.name}
                       className="w-20 h-20 object-cover rounded-md"
                     />

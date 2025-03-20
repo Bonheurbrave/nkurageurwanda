@@ -4,7 +4,7 @@ import axios from "axios";
 import { Toaster, toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 
-axios.defaults.baseURL = "http://localhost:4000";
+axios.defaults.baseURL = "https://nkurageurwanda.onrender.com";
 
 const LoginPage = () => {
   const goto = useNavigate();
