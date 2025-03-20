@@ -1,5 +1,5 @@
 import React from 'react'
-import intro_video from '../../assets/videos/intro_vid.mp4';
+import intro_video from '/assets/videos/intro_vid.mp4';
 import NavBar from './NavBar';
 import Slidings from './Slidings';
 import CallToActionButton from './CallToActionButton';

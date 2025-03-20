@@ -1,14 +1,14 @@
 import React from 'react';
-import artifacts from '../../assets/images/artifacts.jpeg';
-import foods from '../../assets/images/foods.jpeg'
-import homedecor from '../../assets/images/homedecor.jpeg'
-import kits from '../../assets/images/kits.jpeg'
-import handicraft from '../../assets/images/handicraft.jpeg'
+import artifacts from '/assets/images/artifacts.jpeg';
+import foods from '/assets/images/foods.jpeg'
+import homedecor from '/assets/images/homedecor.jpeg'
+import kits from '/assets/images/kits.jpeg'
+import handicraft from '/assets/images/handicraft.jpeg'
 import { motion } from 'framer-motion';
-import literature from '../../assets/images/literature.jpeg'
+import literature from '/assets/images/literature.jpeg'
 import CustomerReviews from '../CustomerReviews';
 import { Link } from 'react-router-dom';
-import amateke from '../../assets/images/products/amateke.jpg'
+import amateke from '/assets/images/products/amateke.jpg'
 const AboutUs = () => {
   const products = [
     {
