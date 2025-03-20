@@ -3,22 +3,22 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaCalendarAlt, FaMapMarkerAlt, FaRegSadCry } from "react-icons/fa"; // Import an icon for 'no tour found'
 import BookingForm from "../components/BookingForm";
-import artmuseum from "../assets/images/tours/artmuseum.jpeg";
-import handicraft from '../assets/images/handicraft.jpeg'
-import artvillage from "../assets/images/tours/artvillage.jpeg";
-import ethnographic from "../assets/images/tours/ethnographic.jpeg";
-import gisenyi from "../assets/images/tours/gisenyi.jpeg";
-import gorilla from "../assets/images/tours/gorilla.jpeg";
-import healers from "../assets/images/tours/healears.jpeg";
-import huye from "../assets/images/tours/huye.jpeg";
-import ibyiwacu from "../assets/images/tours/ibyiwacu.jpeg";
-import kigalicity from "../assets/images/tours/kigalicity.jpeg";
-import kigaligenocide from "../assets/images/tours/kigaligenocide.jpeg";
-import musanzecaves from "../assets/images/tours/musanzecaves.jpeg";
-import nyanza from "../assets/images/tours/nyanza.jpeg";
-import nyungwe from "../assets/images/tours/nyungwe.jpeg";
-import akagera from "../assets/images/tours/akagera.jpeg";
-import kivu from "../assets/images/tours/kivu.jpeg";
+import artmuseum from "/assets/images/tours/artmuseum.jpeg";
+import handicraft from '/assets/images/handicraft.jpeg'
+import artvillage from "/assets/images/tours/artvillage.jpeg";
+import ethnographic from "/assets/images/tours/ethnographic.jpeg";
+import gisenyi from "/assets/images/tours/gisenyi.jpeg";
+import gorilla from "/assets/images/tours/gorilla.jpeg";
+import healers from "/assets/images/tours/healears.jpeg";
+import huye from "/assets/images/tours/huye.jpeg";
+import ibyiwacu from "/assets/images/tours/ibyiwacu.jpeg";
+import kigalicity from "/assets/images/tours/kigalicity.jpeg";
+import kigaligenocide from "/assets/images/tours/kigaligenocide.jpeg";
+import musanzecaves from "/assets/images/tours/musanzecaves.jpeg";
+import nyanza from "/assets/images/tours/nyanza.jpeg";
+import nyungwe from "/assets/images/tours/nyungwe.jpeg";
+import akagera from "/assets/images/tours/akagera.jpeg";
+import kivu from "/assets/images/tours/kivu.jpeg";
 
 const tours = [
   {
