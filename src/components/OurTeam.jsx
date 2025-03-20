@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
-import  bobo from '/assets/images/team/bobo.jpeg';
-import chaquilla from '/assets/images/team/chaquilla.jpg'
-import evode from '/assets/images/team/evode.jpg';
-import fidel from '/assets/images/team/fidel.jpg'
-import hariette from '/assets/images/team/hariette.jpg'
-import modeste from '/assets/images/team/modeste.jpg'
-import paul from '/assets/images/team/paul.jpg'
-import yves from '/assets/images/team/yves.jpg'
+const  bobo = '/assets/images/team/bobo.jpeg';
+const chaquilla = '/assets/images/team/chaquilla.jpg'
+const evode = '/assets/images/team/evode.jpg';
+const fidel = '/assets/images/team/fidel.jpg'
+const hariette = '/assets/images/team/hariette.jpg'
+const modeste = '/assets/images/team/modeste.jpg'
+const paul = '/assets/images/team/paul.jpg'
+const yves = '/assets/images/team/yves.jpg'
 
 // Placeholder image URL for members (replace with actual URLs)
-const defaultImage = "https://via.placeholder.com/150"; // Replace with actual image URLs
+
 
 const teamMembers = [
   {
