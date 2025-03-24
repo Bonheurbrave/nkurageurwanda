@@ -105,13 +105,6 @@ const ServicesPage = () => {
                   <motion.button
                     className="bg-green-500 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none"
                     initial={{ scale: 1 }}
-                    
-                    transition={{
-                      repeat: Infinity, // Loop infinitely
-                      repeatType: "loop", // Repeat the animation loop
-                      duration: 1.5, // Duration for one complete loop cycle
-                      ease: "easeInOut", // Smooth transition
-                    }}
                   >
                     {service.button}
                   </motion.button>
