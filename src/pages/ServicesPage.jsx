@@ -102,12 +102,12 @@ const ServicesPage = () => {
                 ))}
               </ul>
               <Link to={service.link}>
-                  <motion.button
+                  <button
                     className="bg-green-500 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none"
-                    initial={{ scale: 1 }}
+                    
                   >
                     {service.button}
-                  </motion.button>
+                  </button>
                   </Link>
 
             </motion.div>
