@@ -106,7 +106,7 @@ const ContactUs = () => {
       {/* Google Map Embed */}
       <div className="mt-12 w-full">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14962.982749209987!2d30.0599758!3d-1.9472776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dcb0b42e3c8f41%3A0xb42d2b431933e2fc!2sKigali%2C%20Rwanda!5e0!3m2!1sen!2sus!4v1692071629575!5m2!1sen!2sus"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14962.982749209987!2d29.7429998!3d-2.5932359!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19d80f60e8b01e21%3A0x8ab6321b3a0e06ca!2sHuye%2C%20Rwanda!5e0!3m2!1sen!2sus!4v1692071629575!5m2!1sen!2sus"
           width="100%"
           height="450"
           frameBorder="0"
