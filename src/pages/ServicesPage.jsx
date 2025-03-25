@@ -103,8 +103,7 @@ const ServicesPage = () => {
               </ul>
               <Link to={service.link}>
                   <button
-                    className="bg-green-500 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none"
-                    
+                    className="bg-green-500 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none"  
                   >
                     {service.button}
                   </button>
