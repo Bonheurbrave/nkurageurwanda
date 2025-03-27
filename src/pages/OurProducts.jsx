@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../store/cartSlice"; // Your existing Redux action
 import axios from "axios";
 import { toast } from "sonner"; // For notifications
-
+const logo = '/assets/images/logo.png'
 const OurProducts = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [products, setProducts] = useState([]); // Store all products without categories
@@ -120,7 +120,9 @@ const OurProducts = () => {
                   className="bg-white shadow-lg rounded-lg overflow-hidden p-5 max-w-xs w-full"
                 >
                   <img
-                    src={`https://nkurageurwanda.onrender.com${product.image}`} // Assuming image path is relative to your server
+                    src=
+                    
+                    {product.image ? `https://nkurageurwanda.onrender.com${product.image}` : logo} // Assuming image path is relative to your server
                     alt={product.name}
                     className="h-52 object-cover mb-4 mx-auto"
                     width={200}
