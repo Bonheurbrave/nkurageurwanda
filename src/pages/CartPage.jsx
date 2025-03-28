@@ -7,6 +7,7 @@ const airtel = '/assets/images/airtel.png';
 const momo = "/assets/images/momo.jpeg";
 const mastercard = "/assets/images/mastercard.png";
 const paypal = "/assets/images/paypal.png";
+const logo = '/assets/images/logo.png'; // Fallback logo image
 
 // Modal message component
 const Modal = ({ closeModal }) => (
@@ -114,6 +115,11 @@ const CartPage = () => {
     setShowModal(false);
   };
 
+  // Handle image error to show the fallback logo if the image fails
+  const handleImageError = (e) => {
+    e.target.src = logo; // Set to the fallback logo image when the image fails
+  };
+
   return (
     <div className="min-h-screen bg-white p-8">
       <motion.div
@@ -143,6 +149,7 @@ const CartPage = () => {
                       src={`https://nkurageurwanda.onrender.com${item.productId.image}`} // Make sure the image path is correct
                       alt={item.productId.name}
                       className="w-20 h-20 object-cover rounded-md"
+                      onError={handleImageError} // Handle image error to show fallback logo
                     />
                     <div>
                       <h2 className="text-xl capitalize font-semibold text-green-500">
@@ -224,4 +231,4 @@ const CartPage = () => {
   );
 };
 
-export default CartPage;
+export default CartPage
