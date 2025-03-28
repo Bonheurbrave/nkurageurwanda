@@ -5,7 +5,9 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../store/cartSlice"; // Your existing Redux action
 import axios from "axios";
 import { toast } from "sonner"; // For notifications
-const logo = '/assets/images/logo.png'
+
+const logo = '/assets/images/logo.png';
+
 const OurProducts = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [products, setProducts] = useState([]); // Store all products without categories
@@ -97,6 +99,11 @@ const OurProducts = () => {
     }
   };
 
+  // Function to handle image load error
+  const handleImageError = (e) => {
+    e.target.src = logo; // If the image fails to load, replace it with the logo
+  };
+
   return (
     <div className="bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       {isOpen ? null : (
@@ -120,13 +127,12 @@ const OurProducts = () => {
                   className="bg-white shadow-lg rounded-lg overflow-hidden p-5 max-w-xs w-full"
                 >
                   <img
-                    src=
-                    
-                    {product.image ? `https://nkurageurwanda.onrender.com${product.image}` : logo} // Assuming image path is relative to your server
+                    src={product.image ? `https://nkurageurwanda.onrender.com${product.image}` : logo} // Default to logo if no image
                     alt={product.name}
                     className="h-52 object-cover mb-4 mx-auto"
                     width={200}
                     onClick={() => handleViewProductDetails(product)} // Handle product details
+                    onError={handleImageError} // Handle image load error and fallback to logo
                   />
 
                   <h3 className="font-semibold text-lg">{product.name}</h3>
