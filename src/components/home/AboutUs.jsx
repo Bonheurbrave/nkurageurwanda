@@ -273,7 +273,7 @@ const AboutUs = () => {
           {/* More services can be added in a similar way */}
         </div>
       </section>
-    <CustomerReviews />
+    
 
       {/* Products Section */}
       <section className="max-w-7xl mx-auto mb-16">
@@ -348,6 +348,7 @@ const AboutUs = () => {
     </div>
   </div>
 </section>
+      <CustomerReviews />
     </div>
   );
 };
