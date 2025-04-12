@@ -48,35 +48,35 @@ const AboutUs = () => {
         </div>
       </motion.div>
 
-      {/* Services */}
-      <motion.div
-        className="space-y-8 mb-12"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2 }}
+     {/* Elegant CTA Section */}
+<section className="min-h-screen bg-black text-white flex flex-col justify-center items-center px-6">
+  <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center">
+    Discover the Heart of Heritage
+  </h2>
+  <p className="text-lg md:text-xl text-gray-300 text-center max-w-3xl mb-12">
+    Whether you're exploring handcrafted treasures or immersing yourself in cultural journeys, we guide you through experiences that connect you to the roots of tradition.
+  </p>
+  <div className="flex flex-col md:flex-row gap-6">
+    <Link to="/products">
+      <motion.button
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="bg-white text-black font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-gray-100 transition"
       >
-        <h2 className="text-3xl font-bold text-center text-green-600 mb-6">
-          Our Services
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <ServiceCard
-            title="Cultural Tours and Guided Experiences"
-            description="Historical site tours, cultural village visits, museum tours, and more."
-            icon={<FaBriefcase className="w-8 h-8 text-orange-300" />}
-          />
-          <ServiceCard
-            title="Workshops and Training"
-            description="Learn traditional crafts, music, dance, and cooking."
-            icon={<FaHands className="w-8 h-8 text-orange-300" />}
-          />
-          <ServiceCard
-            title="Event Organization"
-            description="Heritage festivals, weddings, cultural performances, and reenactments."
-            icon={<FaCogs className="w-8 h-8 text-orange-300" />}
-          />
-        </div>
-      </motion.div>
+        Continue to Products
+      </motion.button>
+    </Link>
+    <Link to="/tours">
+      <motion.button
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="bg-transparent border border-white text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-white hover:text-black transition"
+      >
+        Book a Tour
+      </motion.button>
+    </Link>
+  </div>
+</section>
 
       {/* Products */}
       <motion.div
