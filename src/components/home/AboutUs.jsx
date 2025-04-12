@@ -99,181 +99,35 @@ const AboutUs = () => {
         </p>
       </section>
 
-      {/* Services Section */}
-      <section className="max-w-7xl mx-auto mb-16">
-        <h2 className="text-3xl font-semibold text-green-800 text-center mb-8">Our Services</h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="p-6 bg-white shadow-lg rounded-lg">
-            <h3 className="text-xl font-semibold text-green-700 mb-4">Cultural Tours and Guided Experiences</h3>
-            <ul className="list-disc pl-5">
-              <li>Guided historical site tours</li>
-              <li>Cultural village visits</li>
-              <li>Museum and gallery tours</li>
-              <li>Archaeological site exploration</li>
-              <li>Storytelling sessions with elders or community leaders</li>
-            </ul>
-            <Link to="/tours">
-    <motion.button
-      className="bg-green-500 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none"
-      initial={{ scale: 1 }}
-      animate={{
-        scale: [1, 1.1, 1], // Loop animation for scaling effect
-        rotate: [0, 3, 0], // Subtle rotation
-      }}
-      transition={{
-        repeat: Infinity, // Loop infinitely
-        repeatType: "loop", // Repeat the animation loop
-        duration: 1.5, // Duration for one complete loop cycle
-        ease: "easeInOut", // Smooth transition
-      }}
-    >
-      Visit Our Product Page
-    </motion.button>
+     {/* Elegant CTA Section */}
+<section className="min-h-screen bg-black text-white flex flex-col justify-center items-center px-6">
+  <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center">
+    Discover the Heart of Heritage
+  </h2>
+  <p className="text-lg md:text-xl text-gray-300 text-center max-w-3xl mb-12">
+    Whether you're exploring handcrafted treasures or immersing yourself in cultural journeys, we guide you through experiences that connect you to the roots of tradition.
+  </p>
+  <div className="flex flex-col md:flex-row gap-6">
+    <Link to="/products">
+      <motion.button
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="bg-white text-black font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-gray-100 transition"
+      >
+        Continue to Products
+      </motion.button>
     </Link>
-          </div>
-
-          <div className="p-6 bg-white shadow-lg rounded-lg">
-            <h3 className="text-xl font-semibold text-green-700 mb-4">Workshops and Training</h3>
-            <ul className="list-disc pl-5">
-              <li>Traditional crafts workshops (e.g., pottery, weaving, carving)</li>
-              <li>Heritage preservation training</li>
-              <li>Traditional music and dance lessons</li>
-              <li>Cooking classes featuring traditional cuisines</li>
-            </ul>
-            <Link to="/products">
-    <motion.button
-      className="bg-green-500 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none"
-      initial={{ scale: 1 }}
-      animate={{
-        scale: [1, 1.1, 1], // Loop animation for scaling effect
-        rotate: [0, 3, 0], // Subtle rotation
-      }}
-      transition={{
-        repeat: Infinity, // Loop infinitely
-        repeatType: "loop", // Repeat the animation loop
-        duration: 1.5, // Duration for one complete loop cycle
-        ease: "easeInOut", // Smooth transition
-      }}
-    >
-      Visit Our Product Page
-    </motion.button>
+    <Link to="/tours">
+      <motion.button
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="bg-transparent border border-white text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-white hover:text-black transition"
+      >
+        Book a Tour
+      </motion.button>
     </Link>
-          </div>
-
-          <div className="p-6 bg-white shadow-lg rounded-lg">
-            <h3 className="text-xl font-semibold text-green-700 mb-4">Event Organization</h3>
-            <ul className="list-disc pl-5">
-              <li>Heritage festivals and fairs</li>
-              <li>Traditional weddings and ceremonies for visitors</li>
-              <li>Cultural performance events (music, dance, theater)</li>
-              <li>Historical reenactments</li>
-            </ul>
-            <Link to="/products">
-    <motion.button
-      className="bg-green-500 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none"
-      initial={{ scale: 1 }}
-      animate={{
-        scale: [1, 1.1, 1], // Loop animation for scaling effect
-        rotate: [0, 3, 0], // Subtle rotation
-      }}
-      transition={{
-        repeat: Infinity, // Loop infinitely
-        repeatType: "loop", // Repeat the animation loop
-        duration: 1.5, // Duration for one complete loop cycle
-        ease: "easeInOut", // Smooth transition
-      }}
-    >
-      Visit Our Product Page
-    </motion.button>
-    </Link>
-          </div>
-
-          <div className="p-6 bg-white shadow-lg rounded-lg">
-            <h3 className="text-xl font-semibold text-green-700 mb-4">Consultancy Services</h3>
-            <ul className="list-disc pl-5">
-              <li>Cultural heritage preservation and management</li>
-              <li>Tourism strategy development</li>
-              <li>Community-based tourism project development</li>
-            </ul>
-            <Link to="/products">
-    <motion.button
-      className="bg-green-500 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none"
-      initial={{ scale: 1 }}
-      animate={{
-        scale: [1, 1.1, 1], // Loop animation for scaling effect
-        rotate: [0, 3, 0], // Subtle rotation
-      }}
-      transition={{
-        repeat: Infinity, // Loop infinitely
-        repeatType: "loop", // Repeat the animation loop
-        duration: 1.5, // Duration for one complete loop cycle
-        ease: "easeInOut", // Smooth transition
-      }}
-    >
-      Visit Our Product Page
-    </motion.button>
-    </Link>
-          </div>
-
-          <div className="p-6 bg-white shadow-lg rounded-lg">
-            <h3 className="text-xl font-semibold text-green-700 mb-4">Educational Services</h3>
-            <ul className="list-disc pl-5">
-              <li>Heritage awareness campaigns</li>
-              <li>School programs on cultural history</li>
-              <li>Cultural exchange programs</li>
-              <li>Research and documentation services</li>
-            </ul>
-            <Link to="/products">
-    <motion.button
-      className="bg-green-500 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none"
-      initial={{ scale: 1 }}
-      animate={{
-        scale: [1, 1.1, 1], // Loop animation for scaling effect
-        rotate: [0, 3, 0], // Subtle rotation
-      }}
-      transition={{
-        repeat: Infinity, // Loop infinitely
-        repeatType: "loop", // Repeat the animation loop
-        duration: 1.5, // Duration for one complete loop cycle
-        ease: "easeInOut", // Smooth transition
-      }}
-    >
-      Visit Our Product Page
-    </motion.button>
-    </Link>
-          </div>
-
-          <div className="p-6 bg-white shadow-lg rounded-lg">
-            <h3 className="text-xl font-semibold text-green-700 mb-4">Content Creation and Publishing</h3>
-            <ul className="list-disc pl-5">
-              <li>Books, articles, and documentaries about cultural heritage</li>
-              <li>Digital archives for oral histories, photographs, and artifacts</li>
-              <li>Virtual reality (VR) experiences of heritage sites</li>
-            </ul>
-            <Link to="/products">
-    <motion.button
-      className="bg-green-500 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none"
-      initial={{ scale: 1 }}
-      animate={{
-        scale: [1, 1.1, 1], // Loop animation for scaling effect
-        rotate: [0, 3, 0], // Subtle rotation
-      }}
-      transition={{
-        repeat: Infinity, // Loop infinitely
-        repeatType: "loop", // Repeat the animation loop
-        duration: 1.5, // Duration for one complete loop cycle
-        ease: "easeInOut", // Smooth transition
-      }}
-    >
-      Visit Our Product Page
-    </motion.button>
-    </Link>
-          </div>
-          {/* More services can be added in a similar way */}
-        </div>
-      </section>
-    
+  </div>
+</section>
 
       {/* Products Section */}
       <section className="max-w-7xl mx-auto mb-16">
