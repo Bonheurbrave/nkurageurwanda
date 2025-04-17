@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { FaQuoteLeft } from 'react-icons/fa';
 import { FaBriefcase, FaHands, FaCogs, FaBook } from "react-icons/fa";
 import OurTeam from "../components/OurTeam";
+const fidel = '/assets/images/team/fidel.jpg'
+
 
 const AboutUs = () => {
   return (
@@ -129,7 +131,7 @@ const FounderMessage = () => {
         {/* Founder Image */}
         <div className="flex justify-center mb-8">
           <img 
-            src={founderImage} 
+            src={fidel} 
             alt="Habiyaremye Fidel" 
             className="w-40 h-40 object-cover rounded-full border-4 border-yellow-500 shadow-md"
           />
