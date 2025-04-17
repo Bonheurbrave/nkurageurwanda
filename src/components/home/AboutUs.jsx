@@ -90,13 +90,11 @@ const AboutUs = () => {
       {/* Vision and Mission Section */}
       <section className="max-w-7xl mx-auto mb-16 text-center">
         <h2 className="text-3xl font-semibold text-green-800 mb-4">Vision</h2>
-        <p className="text-lg text-gray-700 mb-8">
-          To be a global leader in preserving, promoting, and celebrating cultural heritage, inspiring people to connect with their roots and embrace the richness of diverse traditions for future generations.
-        </p>
+        <p className="text-lg text-gray-700 mb-8 text-left">
+To be Africa’s beacon in preserving and celebrating cultural heritage, connecting generations, enriching identity, and inspiring global respect for our diverse traditions.        </p>
         <h2 className="text-3xl font-semibold text-green-800 mb-4">Mission</h2>
-        <p className="text-lg text-gray-700">
-          To empower communities by preserving and showcasing their unique cultural heritage through innovative products, immersive experiences, and sustainable practices, fostering global understanding, appreciation, and economic growth.
-        </p>
+        <p className="text-lg text-gray-700 text-left">
+To empower communities across Rwanda and Africa by innovatively showcasing their heritage through cultural products, immersive experiences, and sustainable models that drive pride, unity, and inclusive development.        </p>
       </section>
 
      {/* Elegant CTA Section */}
