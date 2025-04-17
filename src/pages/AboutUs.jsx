@@ -19,8 +19,7 @@ const AboutUs = () => {
       >
         <h1 className="text-4xl font-bold text-green-600">About Us</h1>
         <p className="text-lg text-gray-700 mt-4">
-          Discover our mission, vision, and services dedicated to preserving
-          and promoting cultural heritage.
+          Welcome to NKURAGE U RWANDA LTD, a visionary Rwandan social enterprise dedicated to preserving cultural heritage, empowering communities, and transforming tradition into a driver of innovation, identity, and inclusive economic growth
         </p>
       </motion.div>
 
