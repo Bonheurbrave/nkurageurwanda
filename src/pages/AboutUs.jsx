@@ -34,19 +34,15 @@ const AboutUs = () => {
         <div className="space-y-4">
           <h2 className="text-2xl font-semibold text-green-600">Our Vision</h2>
           <p className="text-gray-700">
-            To be a global leader in preserving, promoting, and celebrating
-            cultural heritage, inspiring people to connect with their roots and
-            embrace the richness of diverse traditions for future generations.
+            
+To be Africa’s beacon in preserving and celebrating cultural heritage, connecting generations, enriching identity, and inspiring global respect for our diverse traditions.
           </p>
         </div>
 
         <div className="space-y-4">
           <h2 className="text-2xl font-semibold text-green-600">Our Mission</h2>
           <p className="text-gray-700">
-            To empower communities by preserving and showcasing their unique
-            cultural heritage through innovative products, immersive experiences,
-            and sustainable practices, fostering global understanding, appreciation,
-            and economic growth.
+            To empower communities across Rwanda and Africa by innovatively showcasing their heritage through cultural products, immersive experiences, and sustainable models that drive pride, unity, and inclusive development
           </p>
         </div>
       </motion.div>
