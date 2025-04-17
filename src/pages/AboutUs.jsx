@@ -125,7 +125,6 @@ const FounderMessage = () => {
         className="max-w-5xl mx-auto bg-white rounded-xl shadow-lg p-8"
       >
         {/* Founder Image */}
-          <h2 className="text-3xl font-bold text-gray-800 mb-2 text-center">Message from the Founder</h2>
         <div className="flex justify-center mb-8">
           <img 
             src={fidel} 
@@ -136,6 +135,7 @@ const FounderMessage = () => {
 
         {/* Title and Info */}
         <div className="text-center">
+          <h2 className="text-3xl font-bold text-gray-800 mb-2">Message from the Founder</h2>
           <p className="text-md text-gray-600">Habiyaremye Fidel, Founder & CEO, <span className="font-semibold text-yellow-600">NKURAGE U RWANDA LTD</span></p>
         </div>
 
